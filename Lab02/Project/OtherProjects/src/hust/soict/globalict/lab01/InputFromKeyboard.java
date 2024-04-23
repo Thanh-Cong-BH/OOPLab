@@ -1,4 +1,4 @@
-package Ex1;
+package hust.soict.globalict.lab01;
 
 import java.util.Scanner;
 
