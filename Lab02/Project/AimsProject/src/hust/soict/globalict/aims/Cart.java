@@ -1,16 +1,14 @@
 package hust.soict.globalict.aims;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import hust.soict.globalict.aims.media.*;
 
 public class Cart {
-    public static final int MAX_NUMBERS_ORDERS=20;
+    public static final int MAX_NUMBERS_ORDERS = 20;
     private List<Media> itemsOrdered = new ArrayList<Media>(); 
     public void addMedia(Media tmp){
-        if(this.itemsOrdered.size()==20){
+        if (this.itemsOrdered.size()==20) {
             System.out.println("The cart is already full");
             return;
         }
@@ -18,7 +16,7 @@ public class Cart {
         System.out.println("An item has been added to cart");
         return;
     }
-    public void removeMedia(Media tmp){
+    public void removeMedia(Media tmp) {
         if(tmp == null){
             System.out.println("Item not found in cart");
             return;
@@ -27,27 +25,27 @@ public class Cart {
         System.out.println("The item is no longer in the cart");
         return;
     }
-    public float totalCost(){
+    public float totalCost() {
         float total=0;
-        for(Media tmp: this.itemsOrdered){
-            total+=tmp.getCost();
+        for (Media tmp: this.itemsOrdered) {
+            total += tmp.getCost();
         }
         return total;
     }
-    public void printCart(){
+    public void printCart() {
         System.out.println("***********************CART***********************");
         System.out.println("Ordered Items:");
-        int i=0;
-        for(Media tmp: this.itemsOrdered){
-            System.out.println(String.valueOf(i+1)+". "+tmp.toString());
+        int i = 0;
+        for (Media tmp: this.itemsOrdered) {
+            System.out.println(String.valueOf(i+1) + ". " + tmp.toString());
             i++;
         }
-        System.out.println("Total cost: "+String.valueOf(totalCost()));
+        System.out.println("Total cost: " + String.valueOf(totalCost()));
         System.out.println("***************************************************");
     }
-    public Media search(Media med){
-        for(Media tmp : this.itemsOrdered){
-            if(tmp.equals(med)){
+    public Media search(Media med) {
+        for (Media tmp : this.itemsOrdered) {
+            if (tmp.equals(med)) {
                 //System.out.println(tmp.toString());
                 return tmp;
             }
@@ -55,9 +53,9 @@ public class Cart {
         //System.out.println("No item matching this title was found");
         return null;
     }
-    public Media search(int id){
-        for(Media tmp: this.itemsOrdered){
-            if(tmp.getId()==id){
+    public Media search(int id) {
+        for (Media tmp: this.itemsOrdered) {
+            if (tmp.getId()==id) {
                 //System.out.println(tmp.toString());
                 return tmp;
             }
@@ -65,9 +63,9 @@ public class Cart {
         //System.out.println("No item matching this id was found");
         return null;
     }
-    public Media search(String title){
-        for(Media tmp: this.itemsOrdered){
-            if(tmp.getTitle().compareTo(title)==0){
+    public Media search(String title) {
+        for (Media tmp: this.itemsOrdered) {
+            if (tmp.getTitle().compareTo(title) == 0){
                 //System.out.println(tmp.toString());
                 return tmp;
             }
@@ -75,16 +73,16 @@ public class Cart {
         return null;
         //System.out.println("No item matching this title was found");
     }
-    public void sortByCost(){
+    public void sortByCost() {
         SortMediaByCost costComparator = new SortMediaByCost();
         Collections.sort(this.itemsOrdered, costComparator);
         return;
     }
-    public void sortByTitle(){
+    public void sortByTitle() {
         Collections.sort(this.itemsOrdered,new SortMediaByTitle());
         return;
     }
-    public int getSize(){
+    public int getSize() {
         return this.itemsOrdered.size();
     }
 }
