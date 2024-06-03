@@ -6,6 +6,10 @@ import hust.soict.globalict.aims.media.*;
 
 public class Store {
     private ArrayList<Media> itemInStore = new ArrayList<Media>(); 
+    
+    public ArrayList<Media> getItemsInStore() {
+		return itemInStore;
+	}
     public void addMedia(String title){
         System.out.println("Options: ");
         System.out.println("--------------------------------");

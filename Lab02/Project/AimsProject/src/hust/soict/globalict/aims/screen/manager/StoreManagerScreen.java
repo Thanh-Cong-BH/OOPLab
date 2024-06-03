@@ -4,18 +4,35 @@ import hust.soict.globalict.aims.store.Store;
 import hust.soict.globalict.aims.media.Media;
 import hust.soict.globalict.aims.screen.manager.MediaStore;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.util.ArrayList;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 
 
 import javax.swing.*;
 import javax.swing.event.*;
 
-public class StoreManagerScreen {
+public class StoreManagerScreen extends JFrame {
 	private Store store;
+	
+	public StoreManagerScreen(Store store) {
+		this.store = store;
+		
+		Container cp = getContentPane();
+		cp.setLayout(new BorderLayout());
+		cp.add(createNorth(), BorderLayout.NORTH);
+		cp.add(createCenter(), BorderLayout.CENTER);
+		
+		setTitle("Store");
+		setSize(1024, 768);
+		setLocationRelativeTo(null);
+		setVisible(true);
+	}
 	
 	JPanel createNorth() {
 		JPanel north = new JPanel();
@@ -72,11 +89,5 @@ public class StoreManagerScreen {
 		return center;
 	}
 
-	public StoreManagerScreen(Store store) {
-		this.store = store;
-		
-		Container cp = getContentPane();
-		
-	}
 
 }
